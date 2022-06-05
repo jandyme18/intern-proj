@@ -16,13 +16,13 @@ function Search() {
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Middlename"></input>
 
             {/* input surname */}
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="surname">
                 Surname
             </label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Surname"></input>
 
             {/* input National Number */}
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="nationalNO">
                 National Number
             </label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="National Number"></input>
