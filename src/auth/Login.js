@@ -38,7 +38,7 @@ export const Login = () => {
   };
 
   return (
-    <section class="h-screen">
+    <section class="h-screen bg-gradient-to-tr from-dark-blue via-dark-blue to-blue">
       <div class="flex justify-center items-center h-screen w-screen text-light-brown">
         <div class="rounded-md border-2 border-light-brown p-10">
           <img src="https://upload.wikimedia.org/wikipedia/th/9/9e/Immigration_Buraeu_logo.png" class="justify-center mx-auto mb-5" alt="logo" width="70" />

@@ -2,8 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    html {
-      font-family: Noto Sans Thai, sans-serif;
-    }
-  }

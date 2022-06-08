@@ -8,7 +8,7 @@ export class SearchAPI extends Component {
     return (
       <div>
         {
-          Data && Data.map((data, i) => {
+          Data && Data.map((data) => {
             // function tripinfoLoop() {
             //     for (var i in data.tripinfo){
             //              for (var ii in data.tripinfo[i]){
@@ -22,20 +22,22 @@ export class SearchAPI extends Component {
             //     }
             // }
             return (
-              <>
-                <div> ข้อมูลหนังสือเดินทาง
-                  <div class="border grid grid-cols-1 content-center">
-                    <div>ชื่อ: {data.passportinfo.firstname}</div>
-                    <div>ชื่อกลาง: {data.passportinfo.middlename}</div>
-                    <div>นามสกุล: {data.passportinfo.surname}</div>
-                    <div>วันเกิด: {data.passportinfo.birthDate}</div>
-                    <div>เลขหนังสือเดินทาง: {data.passportinfo.passportNo}</div>
-                    <div>รหัสประเทศ: {data.passportinfo.countryCode}</div>
-                    <div>เพศ: {data.passportinfo.gender}</div>
-                    <div><img src={`data:image/ png;base64,${data.passportinfo.passportPhoto}`} width="300" height="300" alt="passport first page" /></div>
+              <div class="container w-full mx-auto px-4">
+                <div class="m-5"> ข้อมูลหนังสือเดินทาง <br />
+                  <div class="flex flex-row">
+                    <div class="basis-9/12 border border-blue mr-6 p-4 text-brown">
+                      <span class="text-dark-blue">ชื่อ:</span> {data.passportinfo.firstname} <br/>
+                      <span class="text-dark-blue">ชื่อกลาง:</span> {data.passportinfo.middlename} <br/>
+                      <span class="text-dark-blue">นามสกุล:</span> {data.passportinfo.surname} <br/>
+                      <span class="text-dark-blue">วันเกิด:</span> {data.passportinfo.birthDate} <br/>
+                      <span class="text-dark-blue">เลขหนังสือเดินทาง:</span> {data.passportinfo.passportNo} <br/>
+                      <span class="text-dark-blue">รหัสประเทศ:</span> {data.passportinfo.countryCode} <br/>
+                      <span class="text-dark-blue">เพศ:</span> {data.passportinfo.gender} <br/>
+                    </div>
+                    <div class="basis-1/4"><img src={`data:image/ png;base64,${data.passportinfo.passportPhoto}`} width="300" height="300" alt="passport first page" /></div>
                   </div>
                 </div>
-                <div> ประวัติการเดินทาง
+                <div class="m-5"> ประวัติการเดินทาง
                   {/* <div class="border grid grid-cols-6 content-center">
                                         <div key={i.length}>{data.tripinfo[i].tripDtm}</div>
                                         <div key={i.length}>{data.tripinfo[i].tripDtm}</div>
@@ -46,34 +48,63 @@ export class SearchAPI extends Component {
 
                                     </div> */}
 
-                  <table class="table-auto">
-                    <thead>
+                  <table class="table-auto w-full container border border-dark-blue">
+                    <thead class="text-center text-light-brown bg-dark-blue">
                       <tr>
-                        <th>Song</th>
-                        <th>Artist</th>
-                        <th>Year</th>
+                        <th>วัน/เวลา</th>
+                        <th>ประเภทการเดินทาง</th>
+                        <th>รหัสเที่ยวบิน</th>
+                        <th>รหัสวีซ่า</th>
+                        <th>จุดตรวจ</th>
+                        <th>ที่อยู่ในไทย</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center text-dark-blue">
                       <tr>
-                        <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                        <td>Malcolm Lockyer</td>
-                        <td>1961</td>
+                        <td>{data.tripinfo[0].tripDtm}</td>
+                        <td>{data.tripinfo[0].tripType}</td>
+                        <td>{data.tripinfo[0].flightNo}</td>
+                        <td>{data.tripinfo[0].visatype}</td>
+                        <td>{data.tripinfo[0].checkPoint}</td>
+                        <td>{data.tripinfo[0].thResidence}</td>
                       </tr>
                       <tr>
-                        <td>Witchy Woman</td>
-                        <td>The Eagles</td>
-                        <td>1972</td>
+                        <td>{data.tripinfo[1].tripDtm}</td>
+                        <td>{data.tripinfo[1].tripType}</td>
+                        <td>{data.tripinfo[1].flightNo}</td>
+                        <td>{data.tripinfo[1].visatype}</td>
+                        <td>{data.tripinfo[1].checkPoint}</td>
+                        <td>{data.tripinfo[1].thResidence}</td>
                       </tr>
                       <tr>
-                        <td>Shining Star</td>
-                        <td>Earth, Wind, and Fire</td>
-                        <td>1975</td>
+                        <td>{data.tripinfo[2].tripDtm}</td>
+                        <td>{data.tripinfo[2].tripType}</td>
+                        <td>{data.tripinfo[2].flightNo}</td>
+                        <td>{data.tripinfo[2].visatype}</td>
+                        <td>{data.tripinfo[2].checkPoint}</td>
+                        <td>{data.tripinfo[2].thResidence}</td>
                       </tr>
+                      <tr>
+                        <td>{data.tripinfo[3].tripDtm}</td>
+                        <td>{data.tripinfo[3].tripType}</td>
+                        <td>{data.tripinfo[3].flightNo}</td>
+                        <td>{data.tripinfo[3].visatype}</td>
+                        <td>{data.tripinfo[3].checkPoint}</td>
+                        <td>{data.tripinfo[3].thResidence}</td>
+                      </tr>
+                      <tr>
+                        <td>{data.tripinfo[4].tripDtm}</td>
+                        <td>{data.tripinfo[4].tripType}</td>
+                        <td>{data.tripinfo[4].flightNo}</td>
+                        <td>{data.tripinfo[4].visatype}</td>
+                        <td>{data.tripinfo[4].checkPoint}</td>
+                        <td>{data.tripinfo[4].thResidence}</td>
+                      </tr>
+
                     </tbody>
                   </table>
                 </div>
-              </>
+              </div>
             )
           })
         }
