@@ -1,48 +1,111 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import Auth from '../auth/Auth';
+// import API from '../components/SearchAPI';
+const Data = require('../json/response_1653892233682.json');
+
+export const Search = (props) => {
+    const navigate = useNavigate();
+
+    const [user, setUser] = useState({
+        "email": "string",
+        "is_active": true,
+        "is_superuser": false,
+        "first_name": "string",
+        "last_name": "string",
+        "id": "",
+    });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            if (Auth.isAuthenticated()) {
+                const result = await Auth.getUser();
+                setUser(result);
+            };
+        };
+        fetchData();
+        // eslint-disable-next-line
+    }, []);
+
+    // Function to call logout
+    const callLogout = async () => {
+        Auth.logout(() => {
+            navigate("/");
+        });
+    };
 
 
-function Search() {
+    // const [data, setData] = useState({});
+    const callDataAPI = useState()
+
     return (
-        <div>
-            {/* input name */}
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                Name
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name"></input>
-
-            {/* input middlename */}
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="middlename">
-                Middlename
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Middlename"></input>
-
-            {/* input surname */}
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="surname">
-                Surname
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Surname"></input>
-
-            {/* input National Number */}
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="nationalNO">
-                National Number
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="National Number"></input>
-
-            {/* input Birthday */}
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                Birthday
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Birthday"></input>
-
-            {/* input passport number */}
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                Passport Number
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Passport Number"></input>
-
-            {/* <input type="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required>
-                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-            </input> */}
+        <div class="container mx-auto">
+            <h1>จ๊ะเอ๋ คุณเข้ามาหาหน้าค้นหาแล้ว ยินดีด้วยจ้า และนี่คือปุ่มล็อคเอ้าเอ้าเอ้าเอ้า</h1>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={callLogout}>
+                ออกจากระบบ
+            </button>
+            <form class="w-full" onSubmit={callDataAPI}>
+                <div class="flex flex-wrap -mx-3 mb-2">
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                            First Name
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" />
+                        <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-middle-name">
+                            Middle Name
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-middle-name" type="text" placeholder="T." />
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            Last Name
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe" />
+                    </div>
+                    {/* <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                            Password
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" />
+                        <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+                    </div> */}
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-2">
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-country-code">
+                            Country Code
+                        </label>
+                        <div class="relative">
+                            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                <option>New Mexico</option>
+                                <option>Missouri</option>
+                                <option>Texas</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+                            City
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque" />
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                            Zip
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210" />
+                    </div>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        Search
+                    </button>
+                </div>
+            </form>
         </div>
     )
 }
-export default Search;
