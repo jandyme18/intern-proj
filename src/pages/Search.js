@@ -40,46 +40,50 @@ export const Search = () => {
     const callDataAPI = useState()
 
     return (
-        <div class="container mx-auto">
-            <h1>จ๊ะเอ๋ คุณเข้ามาหาหน้าค้นหาแล้ว ยินดีด้วยจ้า และนี่คือปุ่มล็อคเอ้าเอ้าเอ้าเอ้า</h1>
-            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={callLogout}>
-                ออกจากระบบ
-            </button>
-            <form class="w-full" onSubmit={callDataAPI}>
-                <div class="flex flex-wrap -mx-3 mb-2">
-                    <div class="w-full md:w-1/3 px-3 my-4">
-                        <label class="block uppercase tracking-wide text-gray-700 text-l font-bold mb-2" for="grid-first-name">
-                            ชื่อจริงภาษาอังกฤษ
-                        </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" />
-                        <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+        <div class="bg-white-malt">
+            <div class="container mx-auto">
+                <label>Choose a browser from this list:
+                    <input list="browsers" name="myBrowser" /></label>
+                <datalist id="browsers">
+                    <option value="Chrome" />
+                    <option value="Firefox" />
+                    <option value="Internet Explorer" />
+                    <option value="Opera" />
+                    <option value="Safari" />
+                    <option value="Microsoft Edge" />
+                </datalist>
+                <h1>จ๊ะเอ๋ คุณเข้ามาหาหน้าค้นหาแล้ว ยินดีด้วยจ้า และนี่คือปุ่มล็อคเอ้าเอ้าเอ้าเอ้า</h1>
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={callLogout}>
+                    ออกจากระบบ
+                </button>
+                <form class="w-full" onSubmit={callDataAPI}>
+                    <div class="flex flex-wrap -mx-3 mb-2">
+                        <div class="w-full md:w-1/3 px-3 my-4">
+                            <label class="block uppercase tracking-wide text-dark-blue text-l font-300 mb-2" for="grid-first-name">
+                                ชื่อจริงภาษาอังกฤษ
+                            </label>
+                            <input class="appearance-none block w-full text-dark-blue placeholder-blue/50 border border-dark-blue rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="" />
+                            <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 my-4">
+                            <label class="block uppercase tracking-wide text-dark-blue text-l font-300 mb-2" for="grid-middle-name">
+                                ชื่อกลางภาษาอังกฤษ
+                            </label>
+                            <input class="appearance-none block w-full text-dark-blue placeholder-blue/50 border border-dark-blue rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="grid-middle-name" type="text" placeholder="" />
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 my-4">
+                            <label class="block uppercase tracking-wide text-gray-700 text-l font-300 mb-2" for="grid-last-name">
+                                นามสกุล
+                            </label>
+                            <input class="appearance-none block w-full text-dark-blue placeholder-blue/50 border border-dark-blue rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe" />
+                        </div>
                     </div>
-                    <div class="w-full md:w-1/3 px-3 my-4">
-                        <label class="block uppercase tracking-wide text-gray-700 text-l font-bold mb-2" for="grid-middle-name">
-                            ชื่อกลางภาษาอังกฤษ
-                        </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-middle-name" type="text" placeholder="T." />
-                    </div>
-                    <div class="w-full md:w-1/3 px-3 my-4">
-                        <label class="block uppercase tracking-wide text-gray-700 text-l font-bold mb-2" for="grid-last-name">
-                            นามสกุล
-                        </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe" />
-                    </div>
-                    {/* <div class="w-full md:w-1/2 px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                            Password
-                        </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" />
-                        <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
-                    </div> */}
-                </div>
-                <div class="flex flex-wrap -mx-3 mb-2">
-                    <div class="w-full md:w-1/3 px-3 mb-4">
-                        <label class="block uppercase tracking-wide text-gray-700 text-l font-bold mb-2" for="grid-country-code">
-                            รหัสประเทศ
-                        </label>
-                        {/* <input class="uppercase appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                    <div class="flex flex-wrap -mx-3 mb-2">
+                        <div class="w-full md:w-1/3 px-3 mb-4">
+                            <label class="block uppercase tracking-wide text-gray-700 text-l font-300 mb-2" for="grid-country-code">
+                                รหัสประเทศ
+                            </label>
+                            {/* <input class="uppercase appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
                         id="grid-last-name" 
                         type="text" 
                         placeholder="เช่น THA" 
@@ -87,8 +91,8 @@ export const Search = () => {
                             setCountryList(event.target.value);
                         }}
                         /> */}
-                        <SearchFilterCountry placeholder={"เช่น THA"} data={Data} />
-                        {/* { Data.filter((data) => {
+                            <SearchFilterCountry placeholder={"เช่น THA"} data={Data} />
+                            {/* { Data.filter((data) => {
                             if (countryList == "") {
                                 return data
                             }
@@ -98,38 +102,29 @@ export const Search = () => {
                         }).map((data, key) => {
                             return <div key={key}>{data.alpha3}</div>
                         }) }  */}
-                        {/* <div class="relative">
-                            <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                                <option>New Mexico</option>
-                                <option>Missouri</option>
-                                <option>Texas</option>
-                            </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                            </div>
-                        </div> */}
-                    </div>
-                    <div class="w-full md:w-1/3 px-3 mb-4">
-                        <label class="block uppercase tracking-wide text-gray-700 text-l font-bold mb-2" for="grid-city">
-                            วันเกิด
-                        </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque" />
-                    </div>
-                    <div class="w-full md:w-1/3 px-3 mb-4">
-                        <label class="block uppercase tracking-wide text-gray-700 text-l font-bold mb-2" for="grid-zip">
-                            เลขหนังสือเดินทาง
-                        </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210" />
-                        
-                    </div>
-                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <button class="bg-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                            Search
-                        </button>
-                    </div>
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 mb-4">
+                            <label class="block uppercase tracking-wide text-gray-700 text-l font-300 mb-2" for="grid-city">
+                                วันเกิด
+                            </label>
+                            <input class="appearance-none block w-full text-dark-blue placeholder-blue/50 border border-dark-blue rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="เช่น 2000/01/01" />
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 mb-4">
+                            <label class="block uppercase tracking-wide text-gray-700 text-l font-300 mb-2" for="grid-zip">
+                                เลขหนังสือเดินทาง
+                            </label>
+                            <input class="uppercase appearance-none block w-full text-dark-blue placeholder-blue/50 border border-dark-blue rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="ตัวหนังสือและตัวเลข เช่น L1111111" />
 
-                </div>
-            </form>
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <button class="bg-light-brown hover:bg-dark-blue hover:text-light-brown text-dark-blue font-300 py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                ค้นหา
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

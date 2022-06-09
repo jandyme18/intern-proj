@@ -42,7 +42,7 @@ export const Login = () => {
       <div class="flex justify-center items-center h-screen w-screen text-light-brown">
         <div class="rounded-md border-2 border-light-brown p-10">
           <img src="https://upload.wikimedia.org/wikipedia/th/9/9e/Immigration_Buraeu_logo.png" class="justify-center mx-auto mb-5" alt="logo" width="70" />
-          <div class="flex text-center ml-8 pb-4 text-5xl font-500">เข้าสู่ระบบ</div>
+          <div class="flex text-center ml-12 pb-4 text-5xl font-500">เข้าสู่ระบบ</div>
           <form onSubmit={callSubmit}>
             {/* Email input  */}
             <div class="mb-6">
