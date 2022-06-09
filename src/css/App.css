@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;500;700&display=swap');
 
+
+
+
 body{
-  font-family: 'Noto Sans Thai', sans-serif;
   @apply
   bg-gradient-to-tr from-dark-blue via-dark-blue to-blue
 }

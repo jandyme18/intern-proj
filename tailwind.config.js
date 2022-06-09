@@ -1,6 +1,9 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    fontFamily: {
+      "noto" : ["Noto Sans Thai", "Helvetica", "arial", "sans-serif"]
+    },
     extend: {
       colors: {
         'dark-blue': '#003265',

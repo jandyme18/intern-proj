@@ -1,4 +1,4 @@
-import decodeJWT from 'jwt-decode';
+// import decodeJWT from 'jwt-decode';
 
 class Auth {
     login = async (email, password) => {
@@ -65,10 +65,10 @@ class Auth {
     isAuthenticated = () => {
         const permissions = localStorage.getItem('permissions');
         if (!permissions) {
-          return false;
+            return false;
         }
         return permissions === 'user' ? true : false;
-      };
+    };
 }
 
 export default new Auth();
