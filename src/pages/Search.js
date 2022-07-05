@@ -20,7 +20,7 @@ export const Search = () => {
     const handleSearch = async (event) => {
         event.preventDefault();
         try {
-            const res = await axios.get(`http://10.117.110.121:8081/api/v2/immigration/check-address/${passportNo}/${nation}`)
+            const res = await axios.get(`http://localhost:8081/api/v2/immigration/check-address/${passportNo}/${nation}`)
             setExtension(res.data)
         }
         catch (err) {
